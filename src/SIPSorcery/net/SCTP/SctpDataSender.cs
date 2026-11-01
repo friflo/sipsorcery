@@ -655,11 +655,11 @@ namespace SIPSorcery.Net
             {
                 if (_receiverWindow > 0 && _congestionWindow > _outstandingBytes)
                 {
-                    return _burstPeriodMilliseconds;
+                    return 0; // _burstPeriodMilliseconds;
                 }
                 else
                 {
-                    return _rtoMinimumMilliseconds;
+                    return 5; // _rtoMinimumMilliseconds;
                 }
             }
             else if (_unconfirmedChunks.Count > 0)
@@ -668,7 +668,7 @@ namespace SIPSorcery.Net
             }
             else
             {
-                return _rtoInitialMilliseconds;
+                return 100; // _rtoInitialMilliseconds;
             }
         }
 
